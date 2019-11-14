@@ -1,15 +1,66 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
- * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- *= require_tree .
- *= require_self
- */
+.headSec {
+    min-height:10px;
+    background-color: #b3e0ff;
+    width: 100%;
+    margin-bottom:10px;
+    overflow: auto;
+    
+}
+
+.headSec h1 {
+    color: #ffffff;
+    font-size: 80px;
+    padding: 15px;
+    
+}
+
+ul { 
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;    
+    
+}
+
+li {float:left;}
+
+li a {
+    display: block;
+    color: #ffffff;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    
+}
+
+
+.mainCont { 
+    
+    margin: auto;
+    width:80%;
+    border: 3px solid #b3e0ff;
+    padding: 10px;
+    text-align: center;
+}
+
+.welcomeIm {width: 30%;}
+
+
+.foot {
+    min-height: 80px;
+    background-color: #b3e0ff;
+    width: 100%;
+    margin-top: 10px;
+    overflow: auto;
+    
+    
+}
+
+.container {
+      background: url("/assets/Site/clubhead.png");
+      background-repeat:no-repeat;
+      background-position:right bottom;
+      width: 100%;
+      min-height: 700px;
+}

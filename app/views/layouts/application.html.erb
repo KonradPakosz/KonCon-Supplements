@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Koncon</title>
+    <title><%= yield(:title) %> | KonCon Supplements</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -9,7 +9,22 @@
     <%= csrf_meta_tags %>
   </head>
 
+  <header>
+    <h1>KonCon Supplements</h1>
+    
+    <ul>
+      <li><%= link_to "Home",  "/" %></li>
+      <li><%= link_to "About", about_path %></li>
+    </ul>
+  </header>
+
   <body class='<%= controller.controller_name %>'>
-    <%= yield %>
+    <div class="container">
+      <%= yield %>
+    </div
+    
+    <footer class="foot">
+      <h1>Im the Footer</h1>
+    </footer>
   </body>
 </html>
