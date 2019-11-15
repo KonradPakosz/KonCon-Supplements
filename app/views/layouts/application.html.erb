@@ -2,9 +2,8 @@
 <html>
   <head>
     <title><%= yield(:title) %> | KonCon Supplements</title>
-    <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag "application", media: 'all', 'data-turbolinks-track'=> true %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track'=> true %>
     <%= csrf_meta_tags %>
   </head>
@@ -23,12 +22,6 @@
   </header>
 
   <body class='<%= controller.controller_name %>'>
-    <div class="container">
       <%= yield %>
-    </div
-    
-    <footer class="foot">
-      <h1>Im the Footer</h1>
-    </footer>
   </body>
 </html>

@@ -1,3 +1,8 @@
+/* ...
+*= require_self
+*= require_tree .
+*/
+
 .headSec {
     min-height:10px;
     background-color: #b3e0ff;
@@ -34,19 +39,6 @@ li a {
     
 }
 
-
-.mainCont { 
-    
-    margin: auto;
-    width:80%;
-    border: 3px solid #b3e0ff;
-    padding: 10px;
-    text-align: center;
-}
-
-.welcomeIm {width: 30%;}
-
-
 .foot {
     min-height: 80px;
     background-color: #b3e0ff;
@@ -57,10 +49,3 @@ li a {
     
 }
 
-.container {
-      background: url("/assets/Site/clubhead.png");
-      background-repeat:no-repeat;
-      background-position:right bottom;
-      width: 100%;
-      min-height: 700px;
-}
