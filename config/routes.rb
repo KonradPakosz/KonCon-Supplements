@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
   
+  get 'cart/index'
+  get '/cart/:id', to: 'cart#add'
+  get '/cart', to: 'cart#index'
+  get '/clearcart', to: 'cart#clearCart'
+  get '/cart/remove/:id' => 'cart#remove'
+
   devise_for :users
   root 'static_pages#home'
   get '/about' => 'static_pages#about'
