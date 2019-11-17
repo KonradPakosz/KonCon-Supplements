@@ -10,4 +10,9 @@ class StaticPagesController < ApplicationController
   def products
 
   end
+  
+  def createOrder
+   @orders = Order.all
+  end
+
 end

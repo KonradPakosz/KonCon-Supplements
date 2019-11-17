@@ -1,4 +1,5 @@
 class CartController < ApplicationController
+  before_action:authenticate_user!
   def add
     # get the Id of the product
     id = params[:id]
@@ -46,4 +47,35 @@ class CartController < ApplicationController
       @cart = {}
     end  
   end
+  
+  def createOrder
+    @user = User.find(current_user.id) # Step 1: Get the current user
+    
+    @order = @user.orders.build(:order_date => DateTime.now, :status => 'Pending')
+    
+    @order.save
+    
+    @cart = session[:cart] || {} # Get the content of the Cart
+    
+    @cart.each do | id, quantity | 
+    product = Product.find_by_id(id)
+    @orderproduct = @order.orderproducts.build(
+      :product_id => product.id, 
+      :title => product.title, 
+      :description => product.description, 
+      :price => product.price)
+
+    @orderproduct.save
+  end
+  
+  @orders = Order.all
+  
+  @orderproducts = Orderproduct.where(order_id: Order.last)
+  
+  session[:cart] = nil
+  
+  redirect_to '/orderConfirmed'
+  
+  end
+  
 end
