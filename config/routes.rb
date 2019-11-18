@@ -17,6 +17,8 @@ Rails.application.routes.draw do
   end
 
   get '/checkout' => 'cart#createOrder'
+  
+  get '/paid/:id' => 'static_pages#paid'
 
   root 'static_pages#home'
   root :to => 'site#home'
