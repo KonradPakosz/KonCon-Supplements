@@ -31,6 +31,7 @@ Rails.application.routes.draw do
   get '/about' => 'static_pages#about'
   get '/login' => 'user#login' 
   get '/logout' => 'user#logout'
+  post '/search' => 'products#search'
 
   resources :products
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
