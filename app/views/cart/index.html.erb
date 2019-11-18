@@ -6,6 +6,14 @@
 
 <div id="productsContainer">
     <table id="customers">
+        <tr>
+            <td></td>
+            <td>Product</td>
+            <td></td>
+            <td>Price per Unit</td>
+            <td>Quantity</td>
+            <td>Price</td>
+        </tr>
         <% total = 0 %>
         <% @cart.each do |id, quantity| %>
             <% product = Product.find_by_id(id) %>
@@ -17,8 +25,6 @@
                 </td>
                 <td class="title"><%= link_to product.title, product %></td>
                 <td><a href="/cart/remove/<%= product.id %>">Remove From Cart</a></td>
-                <td><p><a href="/products" class="button">Continue Shopping</a></p></td>
-                <td><a href="/clearcart" class="button">Empty Cart</a></td>
                 <td class="price"><%= number_to_currency(product.price, :unit =>"€") %></td>
                 <td class="quantity"><%= quantity %></td>
                 <td class="price"><%= number_to_currency(quantity * product.price, :unit =>"€") %></td>
@@ -27,13 +33,19 @@
             <tr>
             <% total += quantity * product.price %>
             </tr>
+            <tr></tr>
         <% end %>
-        
+
         <tr>
-            Grand Total: <%= number_to_currency(total, :unit => "€") %>
+            <td><a href="/checkout" class="button">Checkout</a></td>
+            <td><a href="/products" class="button">Continue Shopping</a></td>
+            <td><a href="/clearcart" class="button">Empty Cart</a></td>
+            <td></td>
+            <td></td>
+            <td>Grand Total: <%= number_to_currency(total, :unit => "€") %></td>
         </tr>
     </table>
 </div>
       
-<a href="/checkout" class="button">Checkout</a>
+
 
