@@ -17,7 +17,6 @@
         <% total = 0 %>
         <% @cart.each do |id, quantity| %>
             <% product = Product.find_by_id(id) %>
-            
             <tr>
                 <td>
                     <div class="image">
@@ -34,10 +33,11 @@
             <tr>
             <% total += quantity * product.price %>
             </tr>
+            <tr></tr>
         <% end %>
-        
+
         <tr>
-            <td></td>
+            <td><a href="/checkout" class="button">Checkout</a></td>
             <td><a href="/products" class="button">Continue Shopping</a></td>
             <td><a href="/clearcart" class="button">Empty Cart</a></td>
             <td></td>
@@ -47,5 +47,5 @@
     </table>
 </div>
       
-<a href="/checkout" class="button">Checkout</a>
+
 
