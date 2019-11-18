@@ -5,26 +5,16 @@
         <tr>
             <td>Order date:</td>
             <td>Ordered By:</td>
-            <td>Order date:</td>
+            <td>Order status:</td>
         </tr>
         <tr>
             <td><%= @order.order_date %></td>
-            <td><%= @order.user %></td>
+            <td><%= @order.user_id %></td>
             <td><%= @order.status %></td>
         </tr>
         <tr>
             <td><%= link_to 'Edit', edit_order_path(@order), :class =>"button" %></td>
             <td><%= link_to 'Back', orders_path, :class =>"button" %></td>
         </tr>
-    </table>
-    <h2>Order Items</h2>
-    <table id="customers">
-        <% @orderproducts.each do |orderproduct| %>
-            <tr>
-                <td><%= orderproduct.created_at %></td>
-                <td><%= orderproduct.title %></td>
-                <td><%= orderproduct.order_id %></td>
-            </tr>
-        <% end %>
     </table>
 </div>
