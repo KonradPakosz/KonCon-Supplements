@@ -58,23 +58,22 @@ class CartController < ApplicationController
     @cart = session[:cart] || {} # Get the content of the Cart
     
     @cart.each do | id, quantity | 
-    product = Product.find_by_id(id)
-    @orderproduct = @order.orderproducts.build(
-      :product_id => product.id, 
-      :title => product.title, 
-      :description => product.description, 
-      :price => product.price)
-
-    @orderproduct.save
-  end
+      product = Product.find_by_id(id)
+      @orderproduct = @order.orderproducts.build(
+        :product_id => product.id, 
+        :title => product.title, 
+        :description => product.description,
+        :quantity => quantity,
+        :price => product.price)
   
-  @orders = Order.all
+      @orderproduct.save
+    end
   
-  @orderproducts = Orderproduct.where(order_id: Order.last)
-  
-  session[:cart] = nil
-  
-  redirect_to '/orderConfirmed'
+    @orders = Order.all
+    
+    @orderproducts = Orderproduct.where(order_id: Order.last)
+    
+    session[:cart] = nil
   
   end
   

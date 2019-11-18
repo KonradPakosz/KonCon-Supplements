@@ -9,15 +9,15 @@ Rails.application.routes.draw do
   get 'orderproducts/edit'
 
   resources :orders do
-    resources:order_products
+    resources :orderproducts
   end
 
   devise_for :users do
     resources :orders
   end
-  
+
   get '/checkout' => 'cart#createOrder'
-  
+
   root 'static_pages#home'
   root :to => 'site#home'
   
