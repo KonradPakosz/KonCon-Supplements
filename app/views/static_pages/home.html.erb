@@ -1,3 +1,17 @@
 <% provide(:title, "Home") %>
-<h1>Home Page</h1>
-<p>This will be the Home Page for our Application</p>
+<div>
+    <h1>Categories</h1>
+    <br>
+    
+    <% @categories.each do |category| %>
+        <div class="producthols">
+            <p><%= category.title %></p>
+            <%= link_to (image_tag category.image, :class=>"itemholsIm", :style =>"height:100px"), category %>
+            <p><%= category.description %></p>
+            <%= render partial: 'layouts/categories' %>
+        </div>
+    <% end %>
+    
+</div>
+
+

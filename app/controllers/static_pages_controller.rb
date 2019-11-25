@@ -1,6 +1,6 @@
 class StaticPagesController < ApplicationController
     def home
-        
+        @categories = Category.all
     end
 
     def about
@@ -13,6 +13,11 @@ class StaticPagesController < ApplicationController
   
     def createOrder
         @orders = Order.all
+    end
+
+    def category
+        catName = params[:title]
+        @products = Product.where("category like ? ", catName)
     end
 
     def paid

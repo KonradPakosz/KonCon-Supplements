@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  resources :categories
   get 'orderproducts/index'
 
   get 'orderproducts/show'
@@ -15,6 +16,8 @@ Rails.application.routes.draw do
   devise_for :users do
     resources :orders
   end
+
+  get 'category/:title', to: 'static_pages#category'
 
   get '/checkout' => 'cart#createOrder'
   

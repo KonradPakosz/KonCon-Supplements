@@ -1,0 +1,23 @@
+<p id="notice"><%= notice %></p>
+<div>
+    <h1>Products</h1>
+    <% if @products.length == 0  %>
+        <h2>There are currently no products in this category</h2>
+    <% else %>
+        <% @products.each do | product | %>
+            <div class="producthols">
+                <h1><%= product.title %></h1>
+                <%= link_to (image_tag product.image_url, :class=>"productholsIm"), product %>
+                <p><%= product.description %></p>
+                <p><%= product.price %></p>
+                <p><%= product.category %></p>
+                <a href="/cart/<%= product.id %>" class="button">Add to Cart</a>  
+                <%= link_to 'Show', product, :class =>"button", :role=>"button" %>
+                <% if current_user && current_user.admin? %>
+                    <%= link_to 'Edit', edit_item_path(item), :class =>"button", :role=>"button" %>
+                    <%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' }, :class =>"button", :role=>"button" %>
+                <% end %>
+            </div>
+        <% end %>
+    <% end %>
+</div>
