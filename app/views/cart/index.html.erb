@@ -4,8 +4,8 @@
 
 <p id="notice"><%= notice %></p>
 
-<div id="productsContainer">
-    <table id="customers">
+<div>
+    <table>
         <tr>
             <td></td>
             <td>Product</td>
@@ -19,7 +19,7 @@
             <% product = Product.find_by_id(id) %>
             <tr>
                 <td>
-                    <div class="image">
+                    <div>
                         <%= link_to (image_tag product.image_url, :style =>"height:40px"), product %>
                     </div>
                 </td>
