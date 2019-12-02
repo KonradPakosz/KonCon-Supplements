@@ -1,0 +1,31 @@
+<h1>Popular Products</h1>
+
+<table class="catalog">
+  <% @products.limit(2).order(:id).each do |product| %>
+      <tr>
+        <td>
+          <div class="image">
+            <%= link_to (image_tag product.image_url, :style => "height:100px"), product %>
+          </div>
+          <div class="title">
+            <%= link_to product.title, product %>
+          </div>
+          <div class="description">
+            <%= product.description %>
+          </div>  
+          <div class="price">
+             <%= number_to_currency(product.price, :unit => "€") %>
+          </div>
+          <div class="links">
+            <% if session[:login] ==1 %>
+              <%= link_to 'Edit', edit_product_path(product) %>
+              <%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %>
+            <%else%>
+            
+              <a href="/cart/<%= product.id %>">Add to Cart</a>
+            <%end%>  
+        </div>
+        </td>
+      </tr>
+    <% end %>
+</table>

@@ -1,6 +1,9 @@
+
+
 class StaticPagesController < ApplicationController
     def home
         @categories = Category.all
+        @products = Product.all
     end
 
     def about
@@ -30,3 +33,4 @@ class StaticPagesController < ApplicationController
 
 
 end
+
