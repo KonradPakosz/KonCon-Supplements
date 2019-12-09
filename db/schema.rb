@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20191202203755) do
+ActiveRecord::Schema.define(version: 20191209212141) do
 
   create_table "categories", force: :cascade do |t|
     t.string   "title"
@@ -58,7 +58,7 @@ ActiveRecord::Schema.define(version: 20191202203755) do
     t.text     "description"
     t.string   "image_url"
     t.decimal  "price",       precision: 8, scale: 2
-    t.datetime "created_at",                          null: falsec
+    t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
     t.string   "category"
   end
@@ -77,6 +77,7 @@ ActiveRecord::Schema.define(version: 20191202203755) do
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
     t.boolean  "admin"
+    t.string   "name"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
