@@ -1,5 +1,3 @@
-
-
 class StaticPagesController < ApplicationController
     def home
         @categories = Category.all
@@ -31,6 +29,9 @@ class StaticPagesController < ApplicationController
         #"Paid by User:#{current_user.id} #{current_user.name} #{current_user.surname}")
     end
 
-
+    def aboutSend
+        @order = Order.find(params[:id])
+        @order.update_attribute(:status, "Paid with Paypal")
+    end
 end
 

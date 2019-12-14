@@ -17,6 +17,8 @@ Rails.application.routes.draw do
     resources :orders
   end
 
+  get '/aboutSend/:id' => 'static_pages#aboutSend'
+
   get 'category/:title', to: 'static_pages#category'
 
   get '/checkout' => 'cart#createOrder'
