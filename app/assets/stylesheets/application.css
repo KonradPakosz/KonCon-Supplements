@@ -40,9 +40,6 @@ li a {
     height: 100px;
 }
 
-#search {
-    background-color: white;
-}
 
 .contact__text h1{
     color: black;
@@ -55,4 +52,14 @@ li a {
 
 .contact__text button {
     appearance: button;
+}
+
+.foot h1 {
+    font-size: 16px;
+    text-align: right;
+    padding: 40px;
+}
+
+p {
+    font-size: 16px;
 }
