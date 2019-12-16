@@ -1,17 +1,27 @@
+h1 {
+  color: white;
+}
+
 body {
   background-color: #fff;
   color: #333;
-  font-family: verdana, arial, helvetica, sans-serif;
   font-size: 13px;
   line-height: 18px;
-  margin: 33px;
 }
 
-p, ol, ul, td {
-  font-family: verdana, arial, helvetica, sans-serif;
+ol, ul, td {
   font-size: 13px;
   line-height: 18px;
   margin: 0px;
+  padding: 20px;
+}
+
+div {
+  padding: 10px;
+}
+
+button {
+  margin: 20px;
 }
 
 pre {
@@ -22,23 +32,9 @@ pre {
 
 a {
   color: #000;
-
-
-  &:hover {
-    color: #fff;
-    background-color: #000;
-  }
 }
 
-th {
-  padding-bottom: 5px;
-}
 
-td {
-  padding-bottom: 7px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
 
 div {
   &.field, &.actions {

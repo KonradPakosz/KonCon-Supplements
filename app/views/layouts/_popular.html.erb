@@ -29,7 +29,7 @@
                                         <%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %>
                                         <%else%>
 
-                                        <a href="/cart/<%= product.id %>">Add to Cart</a>
+                                        <a class="button" href="/cart/<%= product.id %>">Add to Cart</a>
                                         <%end%>
                                     </div>
                                 </td>

@@ -12,12 +12,14 @@
                             <table>
                                 <% @categories.each do |category| %>
                                 <td class="producthols">
-                                    <p><%= category.title %></p>
-                                    <%= link_to (image_tag category.image, :class=>"productholsIm", :style =>"height:100px"), category %>
-                                    <p><%= category.description %></p>
+                                    <h1><%= category.title %></h1>
+                                    <%= link_to (image_tag category.image , :class=>"productholsIm", :style =>"height:150px") %>
                                     <p><a href="/category/<%= category.title %>"
-                                            class="button"><%= category.title %></a>
+                                    class="button"> View Products in this Category</a>
                                     </p>
+                                </td>
+                                <td>
+                                    
                                 </td>
                                 <% end %>
 
