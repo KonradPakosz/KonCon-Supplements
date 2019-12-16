@@ -7,7 +7,6 @@
                         <h1>Please review your purchase and pay below</h1>
                     </div>
 
-
                     <table>
                         <% @total = 0 %>
                         <% @orderproducts.each do |id, quantity| %>
@@ -15,22 +14,22 @@
                             <% product = Orderproduct.find_by_id(id) %>
 
                             <td><%= product.title %></td>
-                            <td><%= product.quantity %></td>
-                            <td><%=number_to_currency(product.price, :unit => "€")%></td>
+                            <td><%= product.quantity %> Unit(s)</td>
+                            <td><%=number_to_currency(product.price, :unit => "€")%> each</td>
                             <td><%= number_to_currency(product.quantity * product.price, :unit => "€") %></td>
                         </tr>
                         <% productTotal = (product.quantity * product.price)%>
                         <% @total += productTotal %>
                         </tr>
-                        <tr>
-                            <td>Order Total: &euro; <%= @total %></td>
-                            <td><%= shipping = 30 %></td>
-                            <td><%= @overall = shipping + @total%></td>
-                        </tr>
-                        <tr>
-                            <td>Total with Shipping: <%= @overall %></td>
-                        </tr>
                         <% end %>
+                        <tr>
+                            <td>Order Total: €<%= @total %></td>
+                            <td>Shipping Cost: €<%= shipping = 10 %></td>
+                        </tr>
+                        <tr>
+                            <td>Total with Shipping: €<%= @overall = shipping+@total %></td>
+                        </tr>
+                        
                     </table>
 
                     <form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post">

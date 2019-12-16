@@ -49,10 +49,10 @@ li a {
 }
 
 .contact__text td {
-    font-size: 20px;
+    font-size: 17px;
     line-height: 30px;
 }
 
-.contact__text a.button {
+.contact__text button {
     appearance: button;
 }
