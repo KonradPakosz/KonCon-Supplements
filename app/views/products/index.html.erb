@@ -1,36 +1,49 @@
+<html>
 
-<h1>Listing Products</h1>
+<body>
+    <section class="contact">
+        <div class="contact__container container">
+            <div class="col col-6-md">
+                <div class="contact__text">
+                    <h1>Our Products on Offer</h1>
 
-<table>
-    <% @products.each do |product| %>
-      <tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
-        <td>
-          <%= image_tag(product.image_url, class: 'list_image') %>
-        </td>
-        <td class="list_description">
-          <dl>
-            <dt><%= product.title %></dt>
-            <dd><%= truncate(strip_tags(product.description), length: 80) %></dd>
-          </dl>
-        </td>
-        <td>
-          <%= product.price %>
-        </td>
-        <td class="list_actions">
-          <%= link_to 'Show', product %><br>
-          <% if current_user && current_user.admin? %>  
-            <%= link_to 'Edit', edit_product_path(product) %><br>
-            <%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %>
-          <% end %>
-        </td>
-        <td class="list_actions">
-            <a href="/cart/<%= product.id %>" class="button">Add To Cart</a>
-        </td>
-      </tr>
-    <% end %>  
-</table>
-            
-<br>
-<% if user_signed_in? %> 
-  <%= link_to 'New Product', new_product_path %>
-<% end %>
+                    <table>
+                        <% @products.each do |product| %>
+                        <tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
+                            <td>
+                                <%= image_tag(product.image_url, class: 'list_image') %>
+                            </td>
+                            <td class="list_description">
+                                <dl>
+                                    <dt><%= product.title %></dt>
+                                    <dd><%= truncate(strip_tags(product.description), length: 80) %></dd>
+                                </dl>
+                            </td>
+                            <td>
+                                <%= product.price %>
+                            </td>
+                            <td class="list_actions">
+                                <%= link_to 'Show', product %><br>
+                                <% if current_user && current_user.admin? %>
+                                <%= link_to 'Edit', edit_product_path(product) %><br>
+                                <%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %>
+                                <% end %>
+                            </td>
+                            <td class="list_actions">
+                                <a href="/cart/<%= product.id %>" class="button">Add To Cart</a>
+                            </td>
+                        </tr>
+                        <% end %>
+                    </table>
+
+                    <br>
+                    <% if user_signed_in? %>
+                    <%= link_to 'New Product', new_product_path %>
+                    <% end %>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>

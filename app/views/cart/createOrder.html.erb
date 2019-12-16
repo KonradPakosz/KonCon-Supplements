@@ -1,45 +1,52 @@
-
-<div>
-    <h1>Please review your purchase and pay below</h1>
-</div>
-
-
-<table>
-    <% @total = 0 %>
-    <% @orderproducts.each do |id, quantity| %>
-        <tr>
-            <% product = Orderproduct.find_by_id(id) %>
-            
-            <td><%= product.title %></td>
-            <td><%= product.quantity %></td>
-            <td><%=number_to_currency(product.price, :unit => "€")%></td> 
-            <td><%= number_to_currency(product.quantity * product.price, :unit => "€") %></td>
-        </tr>
-            <% productTotal = (product.quantity * product.price)%> 
-            <% @total += productTotal %>
-        </tr>
-        <tr>
-            <td>Order Total: &euro; <%= @total %></td>
-            <td><%= shipping = 30 %></td>
-            <td><%= @overall = shipping + @total%></td>
-        </tr>
-        <tr>
-            <td>Total with Shipping: <%= @overall %></td>
-        </tr>
-    <% end %>
-    <tr>
-        <td><h2>  <a href="/paid/<%= @order.id %>" class="button">Pay Now</a></h2></td>
-    </tr>
-</table>
-
-<form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post">
-    <input type="hidden" name="cmd" value="_xclick">
-    <input type="hidden" name="business" value="sb-47cpb638755@business.example.com">
-    <input type="hidden" name="product_name" value="Order Number <%= @orderNum %>">
-    <input type="hidden" name="currency_code" value="EUR">
-    <input type="hidden" name="amount" value="<%= @overall %>">
-    <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_buynow_LG.gif" name="submit" alt="Make payments with PayPal - it's fast, free and secure!">
-    <input type="hidden" name="return" value="http://localhost:3000/" >
-</form>
+<body>
+    <section class="contact">
+        <div class="contact__container container">
+            <div class="col col-6-md">
+                <div class="contact__text">
+                    <div>
+                        <h1>Please review your purchase and pay below</h1>
+                    </div>
 
 
+                    <table>
+                        <% @total = 0 %>
+                        <% @orderproducts.each do |id, quantity| %>
+                        <tr>
+                            <% product = Orderproduct.find_by_id(id) %>
+
+                            <td><%= product.title %></td>
+                            <td><%= product.quantity %></td>
+                            <td><%=number_to_currency(product.price, :unit => "€")%></td>
+                            <td><%= number_to_currency(product.quantity * product.price, :unit => "€") %></td>
+                        </tr>
+                        <% productTotal = (product.quantity * product.price)%>
+                        <% @total += productTotal %>
+                        </tr>
+                        <tr>
+                            <td>Order Total: &euro; <%= @total %></td>
+                            <td><%= shipping = 30 %></td>
+                            <td><%= @overall = shipping + @total%></td>
+                        </tr>
+                        <tr>
+                            <td>Total with Shipping: <%= @overall %></td>
+                        </tr>
+                        <% end %>
+                    </table>
+
+                    <form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post">
+                        <input type="hidden" name="cmd" value="_xclick">
+                        <input type="hidden" name="business" value="sb-47cpb638755@business.example.com">
+                        <input type="hidden" name="product_name" value="Order Number <%= @orderNum %>">
+                        <input type="hidden" name="currency_code" value="EUR">
+                        <input type="hidden" name="amount" value="<%= @overall %>">
+                        <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_buynow_LG.gif"
+                            name="submit" alt="Make payments with PayPal - it's fast, free and secure!">
+                        <input type="hidden" name="return" value="http://localhost:3000/">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>
