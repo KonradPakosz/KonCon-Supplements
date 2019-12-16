@@ -51,7 +51,7 @@ class CartController < ApplicationController
   def createOrder
     @user = User.find(current_user.id) # Step 1: Get the current user
     
-    @order = @user.orders.build(:order_date => DateTime.now, :status => 'Pending')
+    @order = @user.orders.build(:order_date => DateTime.now, :status => 'Completed with Paypal')
     
     @order.save
     
