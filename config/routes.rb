@@ -36,6 +36,7 @@ Rails.application.routes.draw do
   get '/about' => 'static_pages#about'
   get '/login' => 'user#login' 
   get '/logout' => 'user#logout'
+  get '/search' => 'products#search'
   post '/search' => 'products#search'
 
   resources :products
