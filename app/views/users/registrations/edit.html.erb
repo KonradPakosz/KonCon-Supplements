@@ -16,8 +16,10 @@
                     <div><%= f.radio_button :is_female, '1' %> <%= f.label :is_female, "Male" %> </div>
                     <div><%= f.radio_button :is_female, '0' %> <%= f.label :is_female, "female" %> </div>
 
-                    <div><%= f.label :date_of_birth %><br />
-                        <%= f.date_select :date_of_birth %></div>
+                    <div>
+                        <%= f.label :date_of_birth %> <br>
+                        <%= f.date_field :date_of_birth, min: Date.new(1920, 01, 01), max: Date.today %>
+                    </div>
 
                     <div class="field">
                         <%= f.label :email %><br />
